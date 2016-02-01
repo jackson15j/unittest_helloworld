@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
-"""Integration style test.
-=======================
+"""
+Integration style test
+======================
 
-Going to take the stdout output of running the basic hello_world.py file and
+Going to take the stdout output of running the basic `hello_world.py` file and
 pipe it into this file. From this file we will read stdin and check that it is
-the "Hello World" string.
+the `"Hello World"` string.
 
 Note: This is the equivalent of an integration test, where we treat the
-original hello_world.py as a black box.
+original `hello_world.py` as a black box.
 
 Benefits:
 ---------
@@ -29,7 +30,7 @@ Drawbacks:
 To run:
 -------
 
-```{bash}
+```bash
 cd tests
 ../basic_hello_world/./hello_world.py | python3 test_integration_style.py
 ```
@@ -43,14 +44,14 @@ This is a pretty quick and dirty way of reading in the input but it's good
 enough for now. However, what assumptions have we made to get a "good enough"
 integration test going:
 
-* You need to pip in the hello_world.py script as above.
-* The test does not read the hello_world.py script as a module, runs said
+* You need to pipe in the `hello_world.py` script as above.
+* The test does not read the `hello_world.py` script as a module, runs said
   module, capture the stdout, and reads it back in neatly.
-* Doing a read() of the piped input so will block if no newline is seen.
+* Doing a `read()` of the piped input so will block if no newline is seen.
 * Not using the unittest framework, so cannot run with nosetests.
-* Doing an "in" check to avoid OS specific newlines.
+* Doing an `in` check to avoid OS specific newlines.
 * No lowercase of input to make it case-insensitive (foolishly forgot to follow
-  form and make my hello world print as "Hello World").
+  form and make my hello world print as `"Hello World"`).
 
 Now must of these assumptions are either minor or common sense, but the devil
 is always in the detail. At least we have a fairly concise list of
